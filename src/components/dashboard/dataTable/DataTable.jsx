@@ -11,7 +11,7 @@ const DataTable = (props) => {
   const queryClient = useQueryClient();
 const mutation = useMutation({
   mutationFn: async (id) => {
-    const response = await fetch(`bookshop-backend.up.railway.app/${props.slug}/${id}`, {
+    const response = await fetch(`https://bookshop-backend.up.railway.app/${props.slug}/${id}`, {
       method: "delete",
     });
     if (!response.ok) {

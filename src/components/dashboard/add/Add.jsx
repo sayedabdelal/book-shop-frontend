@@ -9,7 +9,7 @@ const Add = (props) => {
     mutationFn: async (formData) => {
       console.log("Form Data:",  formData);
       console.log("Slug:", props.slug);
-      const response = await fetch(`bookshop-backend.up.railway.app/${props.slug}`, {
+      const response = await fetch(`https://bookshop-backend.up.railway.app/${props.slug}`, {
         method: "post",
         headers: {
           "Content-Type": "application/json", // Send as JSON

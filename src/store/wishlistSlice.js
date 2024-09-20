@@ -12,7 +12,7 @@ export const fetchWishlist = createAsyncThunk(
       }
 
       
-      const response = await fetch(`bookshop-backend.up.railway.app/wishlist?user_id=${userId}`);
+      const response = await fetch(`https://bookshop-backend.up.railway.app/wishlist?user_id=${userId}`);
 
       if (!response.ok) {
         const errorData = await response.json();

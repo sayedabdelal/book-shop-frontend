@@ -16,7 +16,7 @@ createRoot(document.getElementById('root')).render(
 
 /*
 export async function checkSession() { 
-  const response = await fetch('bookshop-backend.up.railway.app/check-session');
+  const response = await fetch('https://bookshop-backend.up.railway.app/check-session');
   console.log("log status--->" ,response.status)
 
   if (!response.ok) {

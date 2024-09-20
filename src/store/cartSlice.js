@@ -14,7 +14,7 @@ export const fetchCartItems = createAsyncThunk(
       return rejectWithValue('User ID not found');
     }
 
-    const response = await fetch(`bookshop-backend.up.railway.app/api/cart_items?user_id=${userId}`);
+    const response = await fetch(`https://bookshop-backend.up.railway.app/api/cart_items?user_id=${userId}`);
      
     if (!response.ok) {
       return rejectWithValue(`HTTP error: ${response.status}`);
