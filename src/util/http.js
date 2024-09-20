@@ -72,7 +72,7 @@ export async function fetchUsers(data, dispatch) {
 
 export async function fetchBooks() {
   try {
-    const response = await fetch('https://bookshop-backend.up.railway.app/shop', {
+    const response = await fetch('https://bookshop-backend.up.railway.app/api/shop', {
       credentials: 'include'  // Ensure cookies are included in requests
     });
 
