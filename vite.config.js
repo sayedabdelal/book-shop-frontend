@@ -5,13 +5,4 @@ import svgr from 'vite-plugin-svgr';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://bookshop-backend.up.railway.app/', // Replace with your backend URL
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
-  },
 });
