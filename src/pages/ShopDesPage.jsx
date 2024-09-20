@@ -17,7 +17,7 @@ export async function loader({ request, params }) {
   console.log("id",id)
   console.log("params", request)
 
-  const response = await fetch('http://127.0.0.1:5000/api/details/'+ id, {
+  const response = await fetch('bookshop.up.railway.app/api/details/'+ id, {
     credentials: 'include'
   });
     

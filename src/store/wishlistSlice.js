@@ -12,7 +12,7 @@ export const fetchWishlist = createAsyncThunk(
       }
 
       
-      const response = await fetch(`http://127.0.0.1:5000/wishlist?user_id=${userId}`);
+      const response = await fetch(`bookshop.up.railway.app/wishlist?user_id=${userId}`);
 
       if (!response.ok) {
         const errorData = await response.json();

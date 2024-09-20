@@ -46,7 +46,7 @@ function RootPage() {
     // Function to check session status
     const checkSession = async () => {
         try {
-            const response = await fetch("http://127.0.0.1:5000/check-session", {
+            const response = await fetch("bookshop.up.railway.app/check-session", {
                 credentials: 'include', // Send cookies along with request
             });
             console.log("response checkSession", response);
