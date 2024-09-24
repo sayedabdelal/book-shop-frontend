@@ -29,7 +29,7 @@ import Users from "./pages/dashboard/users/Users.jsx";
 import Products from "./pages/dashboard/products/Products.jsx";
 import ErrorRoute from "./UI/ErrorRoute.jsx";
 
-const basename = "/bookshop"; // Update this to your repository's base path
+const basename = "/book-shop-frontend"; // Update this to your repository's base path
 
 function App() {
   // const darkMode = useSelector((state) => state.theme.darkMode);
