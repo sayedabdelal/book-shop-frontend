@@ -11,6 +11,7 @@ import './Shop.css';
 import './Pagination.css';
 import { ToastContainer } from 'react-toastify';
 import './Search.css';
+ 
 
 const fetchBooksWithDelay = async () => {
   return new Promise((resolve) => {
@@ -28,9 +29,21 @@ function Shop() {
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 20; // Set the number of books per page
 
+  
+
+  useEffect(() => {
+    const currentUrl = window.location.href;
+    console.log(currentUrl)
+    // Check if the current URL is incorrect
+    if (currentUrl === 'https://bookshop.up.railway.app/shop') {
+      // Redirect to the correct URL
+      window.location.href = 'https://bookshop-backend.up.railway.app/shop';
+    }
+  }, []);
+
   // Search state
   const [searchQuery, setSearchQuery] = useState('');
-
+  console.log('reloadpage');
   // Fetch books
   const { data: books, isError: isBooksError, isLoading: isBooksLoading,isPending, error: booksError, isFetched } = useQuery({
     queryKey: ["books"],
