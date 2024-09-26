@@ -77,7 +77,9 @@ const router = createBrowserRouter([
     ],
   },
   { path: "forgot-password", element: <ForgotPasswordPage /> },
-  { path: "*", element: <ErrorRoute /> },
+  // { path: "*", element: <ErrorRoute /> },
+  { path: "*", element: <Navigate to="/" /> },
+  
 ]);
 
 
@@ -93,3 +95,16 @@ function App() {
 }
 
 export default App;
+
+/*
+
+https://bookshop-backend.up.railway.app/shop coorect
+
+when refresh the page it will show 404 page
+https://bookshop.up.railway.app/shop     incorrect
+
+https://bookshop.up.railway.app/shop
+
+
+need when refresh https://bookshop-backend.up.railway.app/shop in front 
+*/
