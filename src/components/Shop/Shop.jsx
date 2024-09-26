@@ -33,13 +33,32 @@ function Shop() {
 
   useEffect(() => {
     const currentUrl = window.location.href;
-    console.log(currentUrl)
+
     // Check if the current URL is incorrect
-    if (currentUrl === 'https://bookshop.up.railway.app/shop') {
-      // Redirect to the correct URL
-      window.location.href = 'https://bookshop-backend.up.railway.app/shop';
-    }
-  }, []);
+    
+
+    // Fetch books from the backend
+    const fetchBooks = async () => {
+      try {
+        const response = await fetch('https://bookshop-backend.up.railway.app/shop', {
+          credentials: 'include', // Include credentials if necessary
+        });
+
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        setBooks(data); // Set the fetched data to state
+      } catch (error) {
+        setError(error.message); // Set error message if fetch fails
+      } finally {
+        setLoading(false); // Set loading to false regardless of success or failure
+      }
+    };
+
+    fetchBooks();
+  }, []); // Run once on component mount
 
   // Search state
   const [searchQuery, setSearchQuery] = useState('');
