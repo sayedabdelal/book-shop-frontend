@@ -2,8 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Book Corner</title>
-    
+    <title>React Router</title>
+    <script type="text/javascript">
+      (function () {
+        var l = window.location;
+        var currentPath = l.pathname.slice(1);
+        if (currentPath.includes("/")) {
+          var updatedPath = currentPath.split("/").map(segment => segment.replace(/&/g, "~and~")).join("/");
+          var newUrl = `${l.protocol}//${l.hostname}${l.port ? ":" + l.port : ""}/${updatedPath}${l.search}${l.hash}`;
+          if (newUrl !== l.href) {
+            window.history.replaceState(null, null, newUrl);
+          }
+        }
+      })();
+    </script>
   </head>
   <body></body>
 </html>
