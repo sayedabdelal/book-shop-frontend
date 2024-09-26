@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,18 +11,9 @@
     <title>Book Corner</title>
 
     <script type="text/javascript">
-      (function (l) {
-        if (l.search[1] === "/") {
-          var decoded = l.search
-            .slice(1)
-            .split("&")
-            .map(function (s) {
-              return s.replace(/~and~/g, "&");
-            })
-            .join("?");
-          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
-        }
-      })(window.location);
+      var currentLocation = window.location.pathname;
+      var rootPath = "/"; // Adjust if needed
+      window.location.replace(rootPath + "#!" + currentLocation);
     </script>
     <script type="module" crossorigin src="/assets/index-CURvDejT.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-s5z15yKX.css">
