@@ -26,24 +26,23 @@ import ErrorRoute from './UI/ErrorRoute.jsx';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <RootPage />,
     errorElement: <ErrorPage />,
     children: [
-      { path: '/', element: <HomePage /> },
-      { path: 'login', element: <LoginPage /> },
-      { path: 'signup', element: <SignupPage /> },
-      { path: 'discount', element: <DiscountPage /> },
-      { path: 'testimonial', element: <TestimonialPage /> },
+      { path: "/", element: <HomePage /> },
+      { path: "login", element: <LoginPage /> },
+      { path: "signup", element: <SignupPage /> },
+      { path: "discount", element: <DiscountPage /> },
+      { path: "testimonial", element: <TestimonialPage /> },
       {
-        path: 'shop',
+        path: "shop",
         children: [
           { index: true, element: <ShopPage /> },
-          { path: 'cart', element: <CartPage /> },
-          { path: 'wishlist', element: <Wishlist /> },
+          { path: "cart", element: <CartPage /> },
+          { path: "wishlist", element: <Wishlist /> },
           {
-            path: ':id', // Dynamic segment for shop description
-            id: 'shop-details',
+            path: ":id", // Dynamic segment for shop description
             element: <ShopDesPage />,
             loader: shopLoader,
           },
@@ -52,7 +51,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: 'dashboard',
+    path: "dashboard",
     element: (
       <PrivateRoute>
         <Layout />
@@ -60,7 +59,7 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: '',
+        path: "",
         element: (
           <PrivateRoute>
             <Users />
@@ -68,7 +67,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: 'products',
+        path: "products",
         element: (
           <PrivateRoute>
             <Products />
@@ -77,9 +76,10 @@ const router = createBrowserRouter([
       },
     ],
   },
-  { path: 'forgot-password', element: <ForgotPasswordPage /> },
-  { path: '*', element: <ErrorRoute /> },
+  { path: "forgot-password", element: <ForgotPasswordPage /> },
+  { path: "*", element: <ErrorRoute /> },
 ]);
+
 
 function App() {
   // Uncomment if darkMode is needed
