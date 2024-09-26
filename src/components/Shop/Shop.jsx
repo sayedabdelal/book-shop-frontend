@@ -11,7 +11,7 @@ import './Shop.css';
 import './Pagination.css';
 import { ToastContainer } from 'react-toastify';
 import './Search.css';
- 
+import { useHistory } from 'react-router-dom';
 
 const fetchBooksWithDelay = async () => {
   return new Promise((resolve) => {
@@ -28,38 +28,8 @@ function Shop() {
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 20; // Set the number of books per page
-  const [bookss, setBooks] = useState([]);
 
-  
-
-  useEffect(() => {
-     
-
-    // Check if the current URL is incorrect
-    
-
-    // Fetch books from the backend
-    const fetchBooks = async () => {
-      try {
-        const response = await fetch('https://bookshop-backend.up.railway.app/shop', {
-          credentials: 'include', // Include credentials if necessary
-        });
-
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status} ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        // setBooks(data); // Set the fetched data to state
-      } catch (error) {
-        // setError(error.message); // Set error message if fetch fails
-      } finally {
-        // setLoading(false); // Set loading to false regardless of success or failure
-      }
-    };
-
-    fetchBooks();
-  }, []); // Run once on component mount
+   
 
   // Search state
   const [searchQuery, setSearchQuery] = useState('');
@@ -72,7 +42,7 @@ function Shop() {
   
    
 
- console.log('books:', bookss);
+ 
   const { items: cartItems, loading: cartLoading, error: cartError } = useSelector((state) => state.cart);
   const { items: wishlistItems, loading: wishlistLoading, error: wishlistError } = useSelector((state) => state.wishlist);
 
