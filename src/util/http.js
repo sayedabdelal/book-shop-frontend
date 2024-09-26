@@ -73,6 +73,7 @@ export async function fetchUsers(data, dispatch) {
 
 export async function fetchBooks() {
   try {
+    const apiUrl = import.meta.env.VITE_API_BASE_URL;
     const response = await fetch(`${apiUrl}/shop`, {
       credentials: 'include'  // Ensure cookies are included in requests
     });
