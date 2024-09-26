@@ -33,7 +33,7 @@ function Shop() {
   
 
   useEffect(() => {
-    const currentUrl = window.location.href;
+     
 
     // Check if the current URL is incorrect
     
@@ -50,11 +50,11 @@ function Shop() {
         }
 
         const data = await response.json();
-        setBooks(data); // Set the fetched data to state
+        // setBooks(data); // Set the fetched data to state
       } catch (error) {
-        setError(error.message); // Set error message if fetch fails
+        // setError(error.message); // Set error message if fetch fails
       } finally {
-        setLoading(false); // Set loading to false regardless of success or failure
+        // setLoading(false); // Set loading to false regardless of success or failure
       }
     };
 
