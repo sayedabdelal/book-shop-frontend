@@ -44,7 +44,7 @@ function RootPage() {
     useEffect(() => {
         // Print the URL when the component mounts or page refreshes
         console.log('url',window.location.href);
-        console.log('location',location);
+        // console.log('location',location);
       }, []); // Empty dependency array ensures this only runs once (on mount)
 
 

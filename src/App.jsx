@@ -23,6 +23,7 @@ import Layout from './pages/dashboard/Layout.jsx';
 import Users from './pages/dashboard/users/Users.jsx';
 import Products from './pages/dashboard/products/Products.jsx';
 import ErrorRoute from './UI/ErrorRoute.jsx';
+import DynamicRedirect from './pages/DynamicRedirect.jsx';
 
 const router = createBrowserRouter([
   {
@@ -77,7 +78,7 @@ const router = createBrowserRouter([
     ],
   },
   { path: "forgot-password", element: <ForgotPasswordPage /> },
-  { path: "*", element: <ErrorRoute /> },
+  { path: "*", element: <DynamicRedirect /> },
   
   
 ]);
