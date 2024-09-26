@@ -39,7 +39,8 @@ function RootPage() {
     
     const checkSession = async () => {
         try {
-            const response = await fetch("https://bookshop-backend.up.railway.app/check-session", {
+            const apiUrl = import.meta.env.VITE_API_BASE_URL;
+            const response = await fetch(`${apiUrl}/check-session`, {
                 credentials: 'include', // Send cookies along with request
             });
             

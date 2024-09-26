@@ -11,8 +11,9 @@ export const fetchWishlist = createAsyncThunk(
         return rejectWithValue('User ID not found');
       }
 
-      
-      const response = await fetch(`https://bookshop-backend.up.railway.app/wishlist?user_id=${userId}`);
+      const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
+      const response = await fetch(`${apiUrl}/wishlist?user_id=${userId}`);
 
       if (!response.ok) {
         const errorData = await response.json();

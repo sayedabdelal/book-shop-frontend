@@ -10,8 +10,9 @@ export const fetchCartItems = createAsyncThunk(
     if (!userId) {
       return rejectWithValue('User ID not found');
     }
+    const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
-    const response = await fetch(`https://bookshop-backend.up.railway.app/api/cart_items?user_id=${userId}`);
+    const response = await fetch(`${apiUrl}/api/cart_items?user_id=${userId}`);
      
     if (!response.ok) {
       return rejectWithValue(`HTTP error: ${response.status}`);

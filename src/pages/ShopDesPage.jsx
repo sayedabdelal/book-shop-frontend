@@ -16,8 +16,8 @@ export async function loader({ request, params }) {
   const id = params.id;
   console.log("id",id)
   console.log("params", request)
-
-  const response = await fetch('https://bookshop-backend.up.railway.app/api/details/'+ id, {
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+  const response = await fetch(`${apiUrl}/api/details/`+ id, {
     credentials: 'include'
   });
     

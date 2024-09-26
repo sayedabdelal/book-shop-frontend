@@ -5,12 +5,13 @@ import { setUserId } from '../store/userSlice';
 import { useDispatch } from 'react-redux';
 
 
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 export async function NewUser({ name, email, password }) {
 
   
   try {
-    const response = await fetch('https://bookshop-backend.up.railway.app/register', {
+    const response = await fetch(`${apiUrl}/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -37,7 +38,7 @@ export async function NewUser({ name, email, password }) {
 export async function fetchUsers(data, dispatch) {
   
   try {
-    const response = await fetch('https://bookshop-backend.up.railway.app/login', {
+    const response = await fetch(`${apiUrl}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -72,7 +73,7 @@ export async function fetchUsers(data, dispatch) {
 
 export async function fetchBooks() {
   try {
-    const response = await fetch('https://bookshop-backend.up.railway.app/shop', {
+    const response = await fetch(`${apiUrl}/shop`, {
       credentials: 'include'  // Ensure cookies are included in requests
     });
 
@@ -93,8 +94,8 @@ export async function fetchBooks() {
 export async function addRemoveCart({ action, productId, quantity, cartItemId }) {
   const isAddAction = action === 'add';
   const url = isAddAction 
-    ? 'https://bookshop-backend.up.railway.app/api/add_cart_item' 
-    : `https://bookshop-backend.up.railway.app/api/delete_cart_item`;
+    ? `${apiUrl}/api/add_cart_item` 
+    : `${apiUrl}/api/delete_cart_item`;
 
   const options = {
     method: isAddAction ? 'POST' : 'DELETE',
@@ -132,8 +133,8 @@ export async function addRemoveCart({ action, productId, quantity, cartItemId })
 
 export async function addRemoveWishlist({ action, productId, wishlistId }) {
   const url = action === 'add'
-    ? 'https://bookshop-backend.up.railway.app/wishlist/add'
-    : 'https://bookshop-backend.up.railway.app/wishlist/remove';
+    ? `${apiUrl}/wishlist/add`
+    : `${apiUrl}/wishlist/remove`;
 
   const options = {
     method: action === 'add' ? 'POST' : 'DELETE',
@@ -174,7 +175,7 @@ export async function addRemoveWishlist({ action, productId, wishlistId }) {
 
 export async function submitCheckout(formData, cartItems) {
   try {
-    const response = await fetch('https://bookshop-backend.up.railway.app/checkout', {
+    const response = await fetch(`${apiUrl}/checkout`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -220,7 +221,7 @@ export async function fetchCarts() {
     throw new Error('User ID not found in localStorage.');
   }
 
-  const response = await fetch(`https://bookshop-backend.up.railway.app/api/cart_items?user_id=${userId}`);
+  const response = await fetch(`${apiUrl}/api/cart_items?user_id=${userId}`);
    
   if (!response.ok) {
     throw new Error(`HTTP error! Fetch cart status: ${response.status}`);
@@ -231,7 +232,7 @@ export async function fetchCarts() {
 
 
 export async function fetchWishList() {
-  const data = await fetch('https://bookshop-backend.up.railway.app/wishlist');
+  const data = await fetch(`${apiUrl}/wishlist`);
   if (!data.ok) {
     throw new Error(`HTTP error! feth cart status: ${data.status}`);
   }
@@ -241,7 +242,7 @@ export async function fetchWishList() {
 
 
 export async function logoutUser() {
-  const response = await fetch('https://bookshop-backend.up.railway.app/logout', {
+  const response = await fetch(`${apiUrl}/logout`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -258,7 +259,7 @@ export async function logoutUser() {
 
 // export async function resetEmail(email, password) {
 //   try {
-//     const response = await fetch('https://bookshop-backend.up.railway.app/reset_password_request', {
+//     const response = await fetch(`${apiUrl}/reset_password_request`, {
 //       method: 'POST',
 //       headers: {
 //         'Content-Type': 'application/json',
@@ -284,7 +285,7 @@ export async function logoutUser() {
 
 // util/http.js
 export const requestResetToken = async (email) => {
-  const response = await fetch('https://bookshop-backend.up.railway.app/reset_password_request', {
+  const response = await fetch(`${apiUrl}/reset_password_request`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email }),
@@ -298,7 +299,7 @@ export const requestResetToken = async (email) => {
 
 export const resetPassword = async (token, password) => {
   try {
-    const response = await fetch(`https://bookshop-backend.up.railway.app/reset_password/${token}`, {
+    const response = await fetch(`${apiUrl}/reset_password/${token}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ password }),
@@ -325,7 +326,7 @@ export const resetPassword = async (token, password) => {
 /* ********************************************/
 
 export  async function getEmails() {
-  const response = await fetch('https://bookshop-backend.up.railway.app/admin_get_users');
+  const response = await fetch(`${apiUrl}/admin_get_users`);
 
   if (!response.ok) {
     throw new Error('Failed to fetch email');
@@ -339,7 +340,7 @@ export  async function getEmails() {
 
 
 export  async function getProducts() {
-  const response = await fetch('https://bookshop-backend.up.railway.app/admin_getsers');
+  const response = await fetch(`${apiUrl}/admin_getsers`);
 
   if (!response.ok) {
     throw new Error('Failed to fetch email');

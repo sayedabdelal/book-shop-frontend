@@ -11,7 +11,8 @@ const DataTable = (props) => {
   const queryClient = useQueryClient();
 const mutation = useMutation({
   mutationFn: async (id) => {
-    const response = await fetch(`https://bookshop-backend.up.railway.app/${props.slug}/${id}`, {
+    const apiUrl = import.meta.env.VITE_API_BASE_URL;
+    const response = await fetch(`${apiUrl}/${props.slug}/${id}`, {
       method: "delete",
     });
     if (!response.ok) {
