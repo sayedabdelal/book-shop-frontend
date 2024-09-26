@@ -72,8 +72,7 @@ export async function fetchUsers(data, dispatch) {
 
 export async function fetchBooks() {
   try {
-    
-    const response = await fetch('/shop', {
+    const response = await fetch('https://bookshop-backend.up.railway.app/shop', {
       credentials: 'include'  // Ensure cookies are included in requests
     });
 
@@ -290,6 +289,7 @@ export const requestResetToken = async (email) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email }),
   });
+  console.log('response:', response);
   const data = await response.json();
   
   if (!response.ok) throw new Error(data.error || 'Failed to request reset token');
