@@ -77,8 +77,8 @@ const router = createBrowserRouter([
     ],
   },
   { path: "forgot-password", element: <ForgotPasswordPage /> },
-  // { path: "*", element: <ErrorRoute /> },
-  { path: "*", element: <Navigate to="/" /> },
+  { path: "*", element: <ErrorRoute /> },
+  
   
 ]);
 

@@ -1,4 +1,4 @@
-import { Outlet, Link, useNavigate } from "react-router-dom";
+import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
 import LI from "./Header/LI";
 import "./Header/Header.css";
 import Footer from "../components/Footer";
@@ -12,6 +12,7 @@ import { fetchCartItems, clearCart } from '../store/cartSlice';
 import { useEffect } from "react";
 import { clearUserId } from "../store/userSlice";
 import { fetchWishlist, clearWishList } from "../store/wishlistSlice";
+
 
 import DarkModeToggle from "../UI/DarkModeToggle";
 
@@ -36,12 +37,14 @@ function RootPage() {
     const totalWishlistItems = wishlistItems.length;
 
     const darkMode = useSelector((state) => state.theme.darkMode);
+    const location = useLocation();
     console.log('ROOOOOOOt', darkMode);
 
 
     useEffect(() => {
         // Print the URL when the component mounts or page refreshes
         console.log('url',window.location.href);
+        console.log('location',location);
       }, []); // Empty dependency array ensures this only runs once (on mount)
 
 
