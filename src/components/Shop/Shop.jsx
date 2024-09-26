@@ -28,6 +28,7 @@ function Shop() {
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 20; // Set the number of books per page
+  const [bookss, setBooks] = useState([]);
 
   
 
@@ -71,7 +72,7 @@ function Shop() {
   
    
 
- 
+ console.log('books:', bookss);
   const { items: cartItems, loading: cartLoading, error: cartError } = useSelector((state) => state.cart);
   const { items: wishlistItems, loading: wishlistLoading, error: wishlistError } = useSelector((state) => state.wishlist);
 
